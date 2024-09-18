@@ -1,12 +1,16 @@
 .movieList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 20px;
+  gap: 6px;
+  font-size: 22px;
   list-style-type: none;
 }
 
 .movieListLink {
   text-decoration: none;
-  color: darkslategray;
+  color: rgb(15, 7, 26);
+}
+
+.movieListLink:hover {
+  color: rgb(69, 27, 168);
 }

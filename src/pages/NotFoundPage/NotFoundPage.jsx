@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import css from "./NotFoundPage.module.css";
+import style from "./NotFoundPage.module.css";
 
 export default function NotFoundPage() {
   return (
     <div>
-      <h3 className={css.notFound}>NotFoundPage</h3>
+      <h3 className={style.notFound}>NotFoundPage</h3>
 
-      <p className={css.notFoundText}>
+      <p className={style.notFoundText}>
         Please use this link to go <Link to="/">back home</Link>
       </p>
     </div>

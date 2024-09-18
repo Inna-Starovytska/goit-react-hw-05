@@ -6,10 +6,10 @@ import {
   Outlet,
   useLocation,
 } from "react-router-dom";
-
+import { GoArrowLeft } from "react-icons/go";
 import { getMovieDetails } from "../../movies";
 import clsx from "clsx";
-import css from "./MovieDetailsPage.module.css";
+import style from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -47,25 +47,26 @@ export default function MovieDetailsPage() {
   }
 
   return (
-    <div className={css.movieDetailWrap}>
-      <Link to={backLinkRef.current} className={css.btn}>
+    <div className={style.movieDetailWrap}>
+      <Link to={backLinkRef.current} className={style.btn}>
+        <GoArrowLeft className={style.arrow} />
         Go back
       </Link>
 
-      <h1 className={css.title}>{movie.title}</h1>
-      <div className={css.poster}>
+      <h1 className={style.title}>{movie.title}</h1>
+      <div className={style.poster}>
         <img
-          className={css.img}
+          className={style.img}
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
         />
-        <p className={css.textOverview}>{movie.overview}</p>
+        <p className={style.textOverview}>{movie.overview}</p>
       </div>
-      <div className={css.castReviewsWrap}>
+      <div className={style.castReviewsWrap}>
         <NavLink
           to="cast"
           className={(props) => {
-            return clsx(css.link, props.isActive && css.active);
+            return clsx(style.link, props.isActive && style.active);
           }}
         >
           Cast
@@ -73,13 +74,13 @@ export default function MovieDetailsPage() {
         <NavLink
           to="reviews"
           className={(props) => {
-            return clsx(css.link, props.isActive && css.active);
+            return clsx(style.link, props.isActive && style.active);
           }}
         >
           Reviews
         </NavLink>
       </div>
-      <Suspense fallback={<p className={css.textWarning}>Loading...</p>}>
+      <Suspense fallback={<p className={style.textWarning}>Loading...</p>}>
         <Outlet />
       </Suspense>
     </div>

@@ -6,11 +6,11 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 30px;
+  gap: 24px;
   padding: 10px;
 
   list-style-type: none;
   font-size: 24px;
-  color: darkslategray;
-  background: #c4c2c2;
+  color: rgb(15, 7, 26);
+  background: #e8ebfa;
 }

@@ -2,12 +2,12 @@
   padding: 10px;
 }
 
-.reviewsTitleAuthor {
+.reviewsTitle {
   font-size: 24px;
-  color: darkslategray;
-  background-color: #dde1f3;
+  color: rgb(15, 7, 26);
+  background-color: #e8ebfa;
 }
 .reviewsContent {
   font-size: 20px;
-  color: darkslategray;
+  color: rgb(15, 7, 26);
 }

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { getSearchMovies } from "../../movies";
 import { useSearchParams } from "react-router-dom";
 import MovieList from "../../components/MovieList/MovieList";
-import css from "./MoviesPage.module.css";
+import style from "./MoviesPage.module.css";
 
-export default function MoviesPage() {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -35,8 +35,8 @@ export default function MoviesPage() {
     }
   };
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
+  const handleSearch = async (e) => {
+    e.preventDefault();
     if (!query.trim()) {
       setInputError("Please enter a search value.");
       return;
@@ -49,28 +49,28 @@ export default function MoviesPage() {
   };
 
   return (
-    <div>
-      <div className={css.mPageWrap}>
-        <form onSubmit={handleSearch} className={css.form}>
-          <input
-            className={css.searchInput}
-            type="text"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search for a movie"
-          />
-          <button type="submit" className={css.btn}>
-            Search
-          </button>
-        </form>
-      </div>
-      {inputError && <p style={{ color: "red" }}>{inputError}</p>}
-      {loading && <p className={css.textWarning}>Loading...</p>}
+    <div className={style.MoviesPageWrap}>
+      <form onSubmit={handleSearch} className={style.MoviesPageForm}>
+        <input
+          className={style.MoviesPageInput}
+          type="text"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search for a movie"
+        />
+        <button type="submit" className={style.MoviesPageButton}>
+          Search
+        </button>
+      </form>
+      {inputError && <p style={{ color: "orangered" }}>{inputError}</p>}
+      {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {!loading && !error && movies.length === 0 && query && (
-        <p className={css.textWarning}>No movies found for "{query}"</p>
+        <p className={style.MoviesPageNftext}>No movies found for "{query}"</p>
       )}
       {!loading && !error && movies.length > 0 && <MovieList movies={movies} />}
     </div>
   );
-}
+};
+
+export default MoviesPage;
